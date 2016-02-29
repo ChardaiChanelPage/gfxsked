@@ -1,0 +1,12 @@
+{% load staticfiles %}
+
+<h1>Here is the list of requests</h1>
+{% if requests_list %}
+<u1>
+	{% for r in requests_list %}
+	<li>
+		{{r.slug}} | {{r.publication_time}} | {{r.editor}} | {{r.reporter}} | {{r.graphic_explanation}} | {{r.is_data_provided}} | {{r.inline_or_standalone}} | {{r.graphics_category}}
+	</li>
+	{% endfor %}
+</u1>
+{% endif %}
