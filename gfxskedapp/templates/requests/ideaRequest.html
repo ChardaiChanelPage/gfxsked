@@ -1,0 +1,48 @@
+
+{% extends 'requests/base.html' %}
+
+{% block content %}
+
+	<div align="right">
+		<form action="http://127.0.0.1:8000/home">
+			<button>
+				Change Request Type
+			</button>
+		</form>
+	</div>
+
+	<div class="request">
+	<h2>Awesome, thanks for getting in touch. Could you give us a bit more information on what you need?</h2>
+
+	<form action='http://127.0.0.1:8000/idea_request/' method="POST"> 
+		{% csrf_token %}
+
+
+		Tell us	a bit about your idea: {{ form.details }} <br>
+		Who do you think might be involved? {{ form.contactName }} <br>
+		What is that person's email? {{ form.contactEmail }} <br>
+		Do you have any data or resources that could be helpful? <input type="file" name="addFiles"></input> <br>
+
+		{{ form.errors }}
+<!--
+	<form>
+		<style>
+	        label textarea{
+	        vertical-align: middle;
+	        }
+	    </style><label>Tell us	a bit about your idea: 
+	    <textarea name="details" rows=6 cols=40></textarea></label><br>
+		Who do you think might be involved? <input type="text" name="contactName"><br>
+	    What is that person's email? <input type="text" name="contactEmail"><br>
+	    Do you have any data or resources that could be helpful? <input type="file" name="addFiles"></input> <br> <br>
+-->
+	    <input type="submit" value="Submit Request"></input> 
+
+	</form>
+	</div>
+{% endblock %}
+
+
+
+
+

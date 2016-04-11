@@ -1,0 +1,62 @@
+
+{% extends 'requests/base.html' %}
+
+{% block content %}
+
+	<div align="right">
+		<form action="http://127.0.0.1:8000/home">
+			<button>
+				Change Request Type
+			</button>
+		</form>
+	</div>
+
+	<div class="request">
+	<h2>Awesome, thanks for getting in touch. Could you give us a bit more information on what you need?</h2>
+
+	<form action='http://127.0.0.1:8000/detailed_request/' method="POST"> 
+		{% csrf_token %}
+
+		Your name: {{ form.requestorName}} <br>
+		Who is our point of contact (if not you): {{ form.contactName }} <br>
+		Contact email: {{ form.contactEmail }} <br>
+		When will this story publish? {{ form.publishDate }} <br>
+		Describe the topic and what sorts of graphics you might need: {{ form.details }} <br>
+		Is there an existing article? {{ form.isExistingArticle }} <br> 
+		If yes, is it in methode/wordpress (provide URL): {{ form.providedURL }} <br>
+		Slug: {{ form.slug }} <br>
+		Do you have any data or resources that could be helpful? <input type="file" name="addFiles"></input> <br>
+		{{ form.errors }}
+
+<!--
+	{{ form.requestorName.help_text}} {{ form.requestorName}} {{ form.errors }}
+-->
+
+		<!--
+	  	Your name: <input type="text" name="requestorName"><br>
+	  	Who is our point of contact (if not you): <input type="text" name="contactName"><br>
+	  	Contact email: <input type="text" name="contactEmail"><br>
+	  	When will this story publish? <input type="text" name="publishDate"><br>
+	  	<style>
+	        label textarea{
+	        vertical-align: middle;
+	        }
+	    </style><label>Describe the topic and what sorts of graphics you might need:
+	    <textarea name="details" rows=6 cols=40></textarea></label><br>
+	    Is there an existing article?  
+	    <form>
+	        <input type="radio" name="isExistingArticle" value="yes"> Yes
+	        <input type="radio" name="isExistingArticle" value="no"> No
+	    </form>
+
+	    If yes, is it in methode/wordpress (provide URL): <input type="text" name="providedURL"><br>
+	    Slug: <input type="text" name="slug"><br>
+	    Do you have any data or resources that could be helpful? <input type="file" name="addFiles"></input> <br> <br>
+	-->
+
+	    <input type="submit" value="Submit Request"></input> 
+
+	</form>
+	</div>
+
+{% endblock %}

@@ -13,11 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from gfxskedapp import views
 from django.conf.urls import include, url
+from django.contrib.auth import views
 from django.contrib import admin
+import gfxskedapp
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index/$', 'gfxskedapp.views.index'),
-    url(r'^requests/$', 'gfxskedapp.views.requests'),
+    url(r'^index/$', gfxskedapp.views.index),
+    url(r'^requests/$', gfxskedapp.views.requests),
+    url(r'^auth_logout/$', views.logout),
+    url(r'^login/$', views.login),
+    url(r'^detailed_request/$', gfxskedapp.views.detailedRequestsView),
+    url(r'^idea_request/$', gfxskedapp.views.ideaRequestView),
+    url(r'^home/$', gfxskedapp.views.homeView),
 ]

@@ -1,0 +1,58 @@
+
+{% extends 'requests/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+	<div style="float: left; width: 50%;">
+		<ul>
+		<form action="http://127.0.0.1:8000/detailed_request/">
+			<button>
+			<h2>
+				I need a graphic for an upcoming story
+			</h2>
+			</button> 
+		</form>
+			<br><br><br>
+
+			<center>
+			<a href="" title="Good for shorter term charts, maps, and illustrations. 
+
+We provide graphic support and depth to reporting that has already happened or is in progress.">  <!-- change to i image to hover and show text -->
+				<p> Should I choose this button? </p>
+			</a></center>
+		</ul>
+	</div>
+
+	<div style="float: right; width: 50%;">
+		<ul>
+		<form action="http://127.0.0.1:8000/idea_request/">
+			<button>
+			<h2>
+				I'm just starting to explore an idea
+			</h2>
+			</button>
+		</form>
+			<br><br><br>
+			<center>
+			<a href="" title="Good for longer term investigative projects, news applicaitons, and new/creative story templates. 
+
+We help shape the content, form and trajectory of a project.">
+				<p> Should I chose this button? </p>
+			</a>
+			</center>
+			 
+
+		</ul>
+	</div>
+
+	<center><a href="http://127.0.0.1:8000/index" > Check the status of a project or view all existing projects </a></center>
+<!--	
+ still not working
+<center><div class="info">
+	<img src="/static/images/i.png" class="hover" style="width:50px;height:50px;">
+	<p class="text"> Hey There!</p>
+</div></center>
+-->
+
+{% endblock %}

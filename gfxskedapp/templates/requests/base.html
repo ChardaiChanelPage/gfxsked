@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	Graphics Requests
+	</title>
+	<style>
+	body {font-family: verdana}
+	</style>
+</head>
+<body>
+	<div align="right">
+		<form action="http://127.0.0.1:8000/auth_logout/">
+			<h3>Hi there, 
+			{% if user.is_authenticated %}
+					{{user.get_full_name}}  <input type="submit" value="Log out" ></input> <!-- temp fix for button -->
+		</form>
+			{% else %}
+			<form action="http://127.0.0.1:8000/login/">
+					Please log in <input type="submit" value="Log in"></input>
+			</form>
+			{% endif %}
+			</h3>
+		 <!-- fix bug for logging in. currently goes to log out page because the form -->
+	</div> 
+
+	<div>
+		<h1>
+			<center>Graphics Requests</center>
+		</h1>
+	</div>
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html>
