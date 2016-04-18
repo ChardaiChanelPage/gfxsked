@@ -3,14 +3,19 @@ from __future__ import unicode_literals
 from django.db import models
 
 class Requests(models.Model):
-	publication_time = models.CharField(max_length=50)
+
+	requestorName = models.CharField(max_length=50)
+	contactName = models.CharField(max_length=50)
+	contactEmail = models.EmailField()
+	publishDate = models.CharField(max_length=50)
+	details = models.CharField(max_length=500)
+	isExistingArticle = models.CharField(max_length=3)
+	providedURL = models.CharField(max_length=50)
 	slug = models.CharField(max_length=10)
-	editor = models.CharField(max_length=50)
-	reporter = models.CharField(max_length=50)
-	graphic_explanation = models.CharField(max_length=500)
-	is_data_provided = models.CharField(max_length=3)
-	inline_or_standalone = models.CharField(max_length=11)
-	graphics_category = models.CharField(max_length=15)
+	isAssigned = models.CharField(max_length=3)
+	status = models.CharField(max_length=20)
+	# NOT SURE WHAT THIS SHOULD BE YET addFiles = 
+
 
 	def __unicode__(self):
-		return self.slug + " / " + self.editor + " / " + self.reporter 
+		return self.slug + " / " + self.publishDate + " / " + self.contactName
