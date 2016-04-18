@@ -25,38 +25,28 @@
 		Is there an existing article? {{ form.isExistingArticle }} <br> 
 		If yes, is it in methode/wordpress (provide URL): {{ form.providedURL }} <br>
 		Slug: {{ form.slug }} <br>
-		Do you have any data or resources that could be helpful? <input type="file" name="addFiles"></input> <br>
-		{{ form.errors }}
-
-<!--
-	{{ form.requestorName.help_text}} {{ form.requestorName}} {{ form.errors }}
--->
-
-		<!--
-	  	Your name: <input type="text" name="requestorName"><br>
-	  	Who is our point of contact (if not you): <input type="text" name="contactName"><br>
-	  	Contact email: <input type="text" name="contactEmail"><br>
-	  	When will this story publish? <input type="text" name="publishDate"><br>
-	  	<style>
-	        label textarea{
-	        vertical-align: middle;
-	        }
-	    </style><label>Describe the topic and what sorts of graphics you might need:
-	    <textarea name="details" rows=6 cols=40></textarea></label><br>
-	    Is there an existing article?  
-	    <form>
-	        <input type="radio" name="isExistingArticle" value="yes"> Yes
-	        <input type="radio" name="isExistingArticle" value="no"> No
-	    </form>
-
-	    If yes, is it in methode/wordpress (provide URL): <input type="text" name="providedURL"><br>
-	    Slug: <input type="text" name="slug"><br>
-	    Do you have any data or resources that could be helpful? <input type="file" name="addFiles"></input> <br> <br>
-	-->
+		Attach any data or resources that could be helpful: <input type="file" name="addFiles"></input> <br>
 
 	    <input type="submit" value="Submit Request"></input> 
 
+	    {% if messages %}
+	    <ul class="messages">
+	    	{% for message in messages %}
+	    		{{ message }}
+	    	{% endfor %}
+	    </ul>
+	    {% endif %}
+	    
+
 	</form>
-	</div>
+	</div> <br><br> 
+
+	<center>
+		<form action="http://127.0.0.1:8000/index">
+		    <button>
+		    	<p> View All Requests</p>
+		    </button>
+		</form>
+	</center>
 
 {% endblock %}

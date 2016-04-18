@@ -13,15 +13,6 @@
 
 	<h3><center>List of requests</center></h3>
 
-
-<!-- 
-	<tr>
-		<td><a href="?order_by=slug"><input type="submit" value="Slug"></a></td>
-		<td><a href="?order_by=publication_time"><input type="submit" value="publication_time"></a></td>
-	</tr>
--->	
-
-
 	<div style="float: left; width: 50%;">
 		<ul>
 		<form>
@@ -31,14 +22,18 @@
 			</h2>
 			</button> 
 		</form>
-
 			<table>
-			<td><b> Slug </b></td>  <td><b> Contact Name </b></td> <td><b> Publication Date </b></td>
+			<td><b> ID </b></td> <td><b> Slug </b></td>  <td><b> Contact Name </b></td> <td><b> Publication Date </b></td>
 				{% if requests_list %}
 					{% for r in requests_list %}
 						{% if r.isAssigned != "yes" %}
 							<tr>
-								<td> {{r.slug}} </td> <td> {{r.contactName}} </td> <td> {{r.publishDate}} </td>
+								<td> {{r.id}} </td>
+								<td> {% if r.slug == '' %} n/a 
+								{% else %} {{r.slug}} {% endif %} </td> 
+								<td> {{r.contactName}} </td> 
+								<td> {% if r.publishDate == '' %} n/a
+								{% else %} {{r.publishDate}} {% endif %} </td>
 							</tr>  
 						{% endif %}
 					{% endfor %}
@@ -52,29 +47,30 @@
 		<form>
 			<button>
 			<h2>
-				Assigned Requests
+				Requests In Progress 
 			</h2>
 			</button>
 		</form>
-
 			<table>
-			<td><b> Slug </b></td>  <td><b> Contact Name </b></td> <td><b> Publication Date </b></td>
+			<td><b> ID </b></td> <td><b> Slug </b></td>  <td><b> Contact Name </b></td> <td><b> Publication Date </b></td>
 				{% if requests_list %}
 					{% for r in requests_list %}
 						{% if r.isAssigned == "yes" %}
 						<tr>
-							<td> {{r.slug}} </td> <td> {{r.contactName}} </td> <td> {{r.publishDate}} </td>
+							<td> {{r.id}} </td>
+							<td> {% if r.slug == '' %} n/a 
+							{% else %} {{r.slug}} {% endif %} </td> 
+							<td> {{r.contactName}} </td> 
+							<td> {% if r.publishDate == '' %} n/a
+							{% else %} {{r.publishDate}} {% endif %} </td>
 						</tr>
 						{% endif %}
 					{% endfor %}
 				{% endif %}
 			</table>
-
 		</ul>
-	</div>
+	</div> 
 
-	
-	
 
 {% endblock %}
 

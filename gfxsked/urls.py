@@ -22,8 +22,7 @@ import gfxskedapp
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index/$', gfxskedapp.views.index),
-    url(r'^requests/$', gfxskedapp.views.requests),
+    url(r'^index/$', gfxskedapp.views.indexView),
     url(r'^auth_logout/$', views.logout),
     url(r'^login/$', views.login),
     url(r'^detailed_request/$', gfxskedapp.views.detailedRequestsView),

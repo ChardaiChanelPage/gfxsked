@@ -13,6 +13,7 @@ class Requests(models.Model):
 	providedURL = models.CharField(max_length=50)
 	slug = models.CharField(max_length=10)
 	isAssigned = models.CharField(max_length=3)
+	status = models.CharField(max_length=20)
 	# NOT SURE WHAT THIS SHOULD BE YET addFiles = 
 
 
