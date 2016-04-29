@@ -20,7 +20,9 @@ See Requirements.txt for more info.
 ------------
 
 1. Download Django 1.9.2
+```sh
 pip install Django==1.9.2
+```
 
 2. Download GFXSKED source code. 
 
