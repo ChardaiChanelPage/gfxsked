@@ -14,8 +14,7 @@ class Requests(models.Model):
 	slug = models.CharField(max_length=10)
 	isAssigned = models.CharField(max_length=3)
 	status = models.CharField(max_length=20)
-	# NOT SURE WHAT THIS SHOULD BE YET addFiles = 
-
+	
 
 	def __unicode__(self):
 		return self.slug + " / " + self.publishDate + " / " + self.contactName

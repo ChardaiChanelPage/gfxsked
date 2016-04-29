@@ -27,6 +27,7 @@
 	.imgWrap:hover .imgDescription {
   		visibility: visible;
   		opacity: 1; }
+
 	</style>
 </head>
 <body>
@@ -35,7 +36,7 @@
 		<form action="http://127.0.0.1:8000/auth_logout/">
 			<h3>Hi there, 
 			{% if user.is_authenticated %}
-					{{user.get_full_name}}  <input type="submit" value="Log out" ></input> <!-- temp fix for button -->
+					{{user.get_full_name}}  <input type="submit" value="Log out" ></input> 
 		</form>
 			{% else %}
 			<form action="http://127.0.0.1:8000/login/">
